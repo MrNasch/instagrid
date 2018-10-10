@@ -51,5 +51,7 @@
 	<string>We need access to the photo library</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need access to the camera</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need access to the library</string>
 </dict>
 </plist>

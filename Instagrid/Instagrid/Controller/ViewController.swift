@@ -7,6 +7,11 @@
 //
 
 import UIKit
+// allowing rotation of pickerController
+extension UIImagePickerController {
+    //override open var shouldAutorotate: Bool
+    //override open var supportedInterfaceOrientations: UIInterfaceOrientationMask
+}
 extension UIView {
     
     // Using a function since `var image` might conflict with an existing variable
@@ -48,6 +53,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomStackView: UIStackView!
     @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet var layoutButtons: [UIButton]!
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
     let layoutManager = LayoutManager()
     var currentImagesIndex = -1
     var swipeGestureRecognizer: UISwipeGestureRecognizer!
@@ -63,10 +70,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     // changed state of orientation
     override func willTransition(to: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        var translationTransform : CGAffineTransform
+        
         if UIDevice.current.orientation.isLandscape {
             self.swipeGestureRecognizer.direction = .left
+            translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
         } else {
             self.swipeGestureRecognizer.direction = .up
+            translationTransform = CGAffineTransform(translationX: -screenHeight, y: 0)
         }
         coordinator.animate(alongsideTransition: { context in
             if UIDevice.current.orientation.isLandscape {
