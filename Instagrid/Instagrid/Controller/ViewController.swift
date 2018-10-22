@@ -17,19 +17,40 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
+    func resetLayout() {
+        for view in topStackView.subviews {
+            view.removeFromSuperview()
+        }
+        
+        for view in bottomStackView.subviews {
+            view.removeFromSuperview()
+        }
+    }
     
     @IBAction func layout1x2(_ sender: Any) {
-        
+        resetLayout()
+        self.topStackView.addArrangedSubview(topStackView)
+        self.bottomStackView.addArrangedSubview(bottomStackView)
+        self.bottomStackView.addArrangedSubview(bottomStackView)
     }
     @IBAction func layout2x1(_ sender: Any) {
-        
+        resetLayout()
+        self.topStackView.addArrangedSubview(topStackView)
+        self.topStackView.addArrangedSubview(topStackView)
+        self.bottomStackView.addArrangedSubview(bottomStackView)
     }
     @IBAction func layoutLeft1x2(_ sender: Any) {
-        
+        resetLayout()
+        self.topStackView.addArrangedSubview(topStackView)
+        self.bottomStackView.addArrangedSubview(bottomStackView)
+        self.bottomStackView.addArrangedSubview(bottomStackView)
     }
     @IBAction func layout2x2(_ sender: Any) {
-        
+        resetLayout()
+        self.topStackView.addArrangedSubview(topStackView)
+        self.topStackView.addArrangedSubview(topStackView)
+        self.bottomStackView.addArrangedSubview(bottomStackView)
+        self.bottomStackView.addArrangedSubview(bottomStackView)
     }
 }
 
