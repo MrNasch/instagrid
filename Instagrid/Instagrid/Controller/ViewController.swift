@@ -11,11 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     func makeButton() -> UIButton {
         let button = UIButton()
-        button.frame = CGRect(x: self.view.frame.size.width - 60, y: 60, width: 50, height: 50)
         button.backgroundColor = UIColor.red
-        button.setTitle("", for: .normal)
-        button.addTarget(self, action: #selector(resetLayout), for: .touchUpInside)
-        self.view.addSubview(button)
         return button
     }
     
@@ -27,6 +23,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     @objc func resetLayout() {
+        squareStackView.axis = .vertical
+        topStackView.axis = .horizontal
+        bottomStackView.axis = .horizontal
+        
         for view in topStackView.subviews {
             view.removeFromSuperview()
         }
@@ -37,28 +37,31 @@ class ViewController: UIViewController {
     }
     @IBAction func layout1x2(_ sender: Any) {
         resetLayout()
-        topStackView.addArrangedSubview(topStackView)
-        bottomStackView.addArrangedSubview(bottomStackView)
-        bottomStackView.addArrangedSubview(bottomStackView)
+        topStackView.addArrangedSubview(makeButton())
+        bottomStackView.addArrangedSubview(makeButton())
+        bottomStackView.addArrangedSubview(makeButton())
     }
     @IBAction func layout2x1(_ sender: Any) {
         resetLayout()
-        topStackView.addArrangedSubview(topStackView)
-        topStackView.addArrangedSubview(topStackView)
-        bottomStackView.addArrangedSubview(bottomStackView)
+        topStackView.addArrangedSubview(makeButton())
+        topStackView.addArrangedSubview(makeButton())
+        bottomStackView.addArrangedSubview(makeButton())
     }
     @IBAction func layoutLeft1x2(_ sender: Any) {
         resetLayout()
-        topStackView.addArrangedSubview(topStackView)
-        bottomStackView.addArrangedSubview(bottomStackView)
-        bottomStackView.addArrangedSubview(bottomStackView)
+        squareStackView.axis = .horizontal
+        topStackView.axis = .vertical
+        bottomStackView.axis = .vertical
+        topStackView.addArrangedSubview(makeButton())
+        bottomStackView.addArrangedSubview(makeButton())
+        bottomStackView.addArrangedSubview(makeButton())
     }
     @IBAction func layout2x2(_ sender: Any) {
         resetLayout()
-        topStackView.addArrangedSubview(topStackView)
-        topStackView.addArrangedSubview(topStackView)
-        bottomStackView.addArrangedSubview(bottomStackView)
-        bottomStackView.addArrangedSubview(bottomStackView)
+        topStackView.addArrangedSubview(makeButton())
+        topStackView.addArrangedSubview(makeButton())
+        bottomStackView.addArrangedSubview(makeButton())
+        bottomStackView.addArrangedSubview(makeButton())
     }
 }
 
