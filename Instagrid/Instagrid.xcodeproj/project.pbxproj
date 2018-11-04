@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F405573A2189EA6B0075E70B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40557382189EA6A0075E70B /* Main.storyboard */; };
 		F4898C15215CE4FA003DB76B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4898C14215CE4FA003DB76B /* AppDelegate.swift */; };
 		F4898C17215CE4FA003DB76B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4898C16215CE4FA003DB76B /* ViewController.swift */; };
-		F4898C1A215CE4FA003DB76B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4898C18215CE4FA003DB76B /* Main.storyboard */; };
 		F4898C1F215CE4FD003DB76B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4898C1D215CE4FD003DB76B /* LaunchScreen.storyboard */; };
 		F4898C2A215CE4FE003DB76B /* InstagridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4898C29215CE4FE003DB76B /* InstagridTests.swift */; };
 		F4898C35215CE4FE003DB76B /* InstagridUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4898C34215CE4FE003DB76B /* InstagridUITests.swift */; };
@@ -35,12 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F40557392189EA6A0075E70B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F471DA812189004900A778B0 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		F471DA822189004900A778B0 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		F4898C11215CE4FA003DB76B /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4898C14215CE4FA003DB76B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4898C16215CE4FA003DB76B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F4898C19215CE4FA003DB76B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4898C1E215CE4FD003DB76B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4898C20215CE4FD003DB76B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4898C25215CE4FE003DB76B /* InstagridTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagridTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +144,7 @@
 		F4898C46215D09D3003DB76B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F4898C18215CE4FA003DB76B /* Main.storyboard */,
+				F40557382189EA6A0075E70B /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,9 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4898C1F215CE4FD003DB76B /* LaunchScreen.storyboard in Resources */,
-				F4898C1A215CE4FA003DB76B /* Main.storyboard in Resources */,
 				F4898C55215D0FA9003DB76B /* Assets.xcassets in Resources */,
 				F4898C52215D0AA0003DB76B /* Default-568h@2x.png in Resources */,
+				F405573A2189EA6B0075E70B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,10 +333,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F4898C18215CE4FA003DB76B /* Main.storyboard */ = {
+		F40557382189EA6A0075E70B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F4898C19215CE4FA003DB76B /* Base */,
+				F40557392189EA6A0075E70B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
