@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         bottomStackView.axis = .horizontal
         
         for view in topStackView.subviews {
-            view.removeFromSuperview()
+            view.removeFromSuperview() 
         }
         
         for view in bottomStackView.subviews {
