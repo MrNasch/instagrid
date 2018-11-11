@@ -49,28 +49,28 @@
                                     <constraint firstAttribute="height" constant="60" id="vHU-o5-WbE"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="769-Jx-XRZ" userLabel="MainStackView">
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="769-Jx-XRZ" userLabel="MainStackView">
                                 <rect key="frame" x="37" y="80" width="301" height="577"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dm4-dK-zc9" userLabel="mainSwipe">
-                                        <rect key="frame" x="0.0" y="0.0" width="301" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="301" height="136"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wd4-KH-vG7" userLabel="swipe">
-                                                <rect key="frame" x="0.0" y="0.0" width="301" height="120"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="301" height="136"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oHE-dS-NM7">
-                                                        <rect key="frame" x="143" y="0.0" width="15" height="60"/>
+                                                        <rect key="frame" x="143" y="0.0" width="15" height="68"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="GH3-NP-SFP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="68"/>
                                                             </imageView>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="top" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K6O-ZE-R2x">
-                                                        <rect key="frame" x="70.5" y="60" width="160.5" height="60"/>
+                                                        <rect key="frame" x="70.5" y="68" width="160.5" height="68"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxf-LR-UsP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="160.5" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="160.5" height="68"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Sot-dw-JqY"/>
                                                                 </constraints>
@@ -140,10 +140,10 @@
                                         <variation key="heightClass=regular-widthClass=compact" axis="horizontal"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m6Q-YV-zGd" userLabel="mainButton">
-                                        <rect key="frame" x="0.0" y="457" width="301" height="120"/>
+                                        <rect key="frame" x="0.0" y="441" width="301" height="136"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hrq-4o-kaE" userLabel="buttons">
-                                                <rect key="frame" x="0.0" y="27.5" width="301" height="65"/>
+                                                <rect key="frame" x="0.0" y="35.5" width="301" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkw-bL-UYB">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="65"/>
@@ -193,7 +193,6 @@
                                     <constraint firstAttribute="bottom" secondItem="m6Q-YV-zGd" secondAttribute="bottom" id="Z0i-ox-Dvv"/>
                                     <constraint firstItem="GK1-11-g6C" firstAttribute="centerY" secondItem="769-Jx-XRZ" secondAttribute="centerY" id="a0P-H6-XAN"/>
                                     <constraint firstItem="GK1-11-g6C" firstAttribute="centerX" secondItem="769-Jx-XRZ" secondAttribute="centerX" id="a7Z-UM-Zvg"/>
-                                    <constraint firstAttribute="trailing" secondItem="m6Q-YV-zGd" secondAttribute="trailing" id="awJ-Ra-ueX"/>
                                     <constraint firstItem="GK1-11-g6C" firstAttribute="centerY" secondItem="769-Jx-XRZ" secondAttribute="centerY" id="ndW-XX-AI0"/>
                                     <constraint firstItem="m6Q-YV-zGd" firstAttribute="top" secondItem="769-Jx-XRZ" secondAttribute="top" constant="60" id="oQU-8C-xwX"/>
                                     <constraint firstItem="GK1-11-g6C" firstAttribute="top" secondItem="Dm4-dK-zc9" secondAttribute="bottom" constant="16" id="wok-R5-Zu7"/>
@@ -222,6 +221,7 @@
                                     <mask key="constraints">
                                         <exclude reference="I2H-lB-dU3"/>
                                         <exclude reference="LhP-SL-aCu"/>
+                                        <exclude reference="wok-R5-Zu7"/>
                                     </mask>
                                 </variation>
                             </stackView>
