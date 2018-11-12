@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     func makeButton() -> UIButton {
         let button = UIButton()
-        button.backgroundColor = UIColor.red
+        button.backgroundColor = UIColor.white
+        button.setImage(UIImage(named: "blue cross"), for: .normal)
         return button
     }
     

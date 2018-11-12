@@ -102,16 +102,18 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EPg-S0-otM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="281" height="137.5"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FIh-oY-ru2">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue cross" translatesAutoresizingMaskIntoConstraints="NO" id="FIh-oY-ru2">
                                                                         <rect key="frame" x="0.0" y="0.0" width="281" height="137.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RSz-Q8-vc6">
                                                                 <rect key="frame" x="0.0" y="147.5" width="281" height="137.5"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bB7-M3-Krg">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue cross" translatesAutoresizingMaskIntoConstraints="NO" id="bB7-M3-Krg">
                                                                         <rect key="frame" x="0.0" y="0.0" width="281" height="137.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </stackView>
@@ -276,5 +278,6 @@
         <image name="Layout 3" width="65" height="65"/>
         <image name="Layout 4" width="65" height="65"/>
         <image name="arrow" width="15" height="10"/>
+        <image name="blue cross" width="48" height="49"/>
     </resources>
 </document>
