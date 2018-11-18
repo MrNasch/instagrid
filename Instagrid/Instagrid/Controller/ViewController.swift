@@ -19,9 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var squareStackView: UIStackView!
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bottomStackView: UIStackView!
+    let layoutManager = LayoutManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     @objc func resetLayout() {
         squareStackView.axis = .vertical
@@ -64,5 +65,8 @@ class ViewController: UIViewController {
         bottomStackView.addArrangedSubview(makeButton())
         bottomStackView.addArrangedSubview(makeButton())
     }
+}
+func grid() {
+    resetLayout()
 }
 
