@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class LayoutManager {
-    var type = .layout1x2()
+    var type = Grid.layout2x1
     var images = [UIImage]()
     
     init()  {
@@ -40,10 +40,10 @@ extension LayoutManager {
     }
     
     
-    func makeGridLayout(_ sender: LayoutManager) {
-        var firstline = [images[0],images[1]]
-        var secondline = [images[2],images[3]]
-        var imagesGrid = [[firstline], [secondline]]
+    func makeGridLayout(_ sender: LayoutManager) -> Array<Any>{
+        let firstline = [images[0],images[1]]
+        let secondline = [images[2],images[3]]
+        let imagesGrid = [firstline, secondline]
         return imagesGrid
     }
 }

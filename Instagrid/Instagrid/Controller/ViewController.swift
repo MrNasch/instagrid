@@ -66,7 +66,4 @@ class ViewController: UIViewController {
         bottomStackView.addArrangedSubview(makeButton())
     }
 }
-func grid() {
-    resetLayout()
-}
 
