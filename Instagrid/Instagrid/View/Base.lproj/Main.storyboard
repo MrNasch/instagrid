@@ -263,6 +263,7 @@
                     <connections>
                         <outlet property="bottomStackView" destination="RSz-Q8-vc6" id="iXk-EA-sMF"/>
                         <outlet property="squareStackView" destination="g4H-nl-4L4" id="dZy-SI-HEJ"/>
+                        <outlet property="swipeTextLabel" destination="gxf-LR-UsP" id="r3V-LQ-biJ"/>
                         <outlet property="topStackView" destination="EPg-S0-otM" id="rEG-Qf-tBZ"/>
                     </connections>
                 </viewController>

@@ -19,16 +19,27 @@ class LayoutManager {
                    UIImage(named: "blue cross")!,
                    UIImage(named: "blue cross")!]
         
+        
+    }
+    var imagesGrid : [[UIImage]] {
         switch type {
-        case .layout1x2, .layoutLeft1x2: break
-            
-        case .layout2x1: break
-            
-        case .layout2x2: break
-            
+            case .layout1x2, .layoutLeft1x2:
+                let firstLine = [images[0]]
+                let secondLine = [images[1],images[2]]
+                let imagesGrid = [firstLine, secondLine]
+                return imagesGrid
+            case .layout2x1:
+                let firstLine = [images[0],images[1]]
+                let secondLine = [images[2]]
+                let imagesGrid = [firstLine, secondLine]
+                return imagesGrid
+            case .layout2x2:
+                let firstLine = [images[0],images[1]]
+                let secondLine = [images[2],images[3]]
+                let imagesGrid = [firstLine, secondLine]
+                return imagesGrid
         }
     }
-    
 }
 
 extension LayoutManager {
@@ -37,13 +48,5 @@ extension LayoutManager {
         case layoutLeft1x2
         case layout2x1
         case layout2x2
-    }
-    
-    
-    func makeGridLayout(_ sender: LayoutManager) -> Array<Any>{
-        let firstline = [images[0],images[1]]
-        let secondline = [images[2],images[3]]
-        let imagesGrid = [firstline, secondline]
-        return imagesGrid
     }
 }
