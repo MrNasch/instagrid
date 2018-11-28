@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func makeButton(images: UIImage) -> UIButton {
+    func makeButton(images: UIImage, index: Int) -> UIButton {
         let button = UIButton()
         button.backgroundColor = UIColor.white
         button.setImage(images, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFill
         button.addTarget(self, action: #selector(self.chooseImage(_:)), for: .touchUpInside)
+        button.tag = index
         return button
     }
     
@@ -22,6 +24,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bottomStackView: UIStackView!
     let layoutManager = LayoutManager()
+    var currentImagesIndex = -1
     override func viewDidLoad() {
         super.viewDidLoad()
         layout2x1(self)
@@ -45,20 +48,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.present(imagePickerController, animated: true, completion: nil)
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+        currentImagesIndex = sender.tag
         self.present(actionSheet, animated: true, completion: nil)
         
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let imageChoose = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        for _ in layoutManager.images {
-            var i = 0
-            layoutManager.images[i] = imageChoose
-            makeButton(images: imageChoose).setBackgroundImage(imageChoose, for: .normal)
-            makeButton(images: imageChoose).contentMode = .scaleAspectFit
-            i += 1
-        }
+        
+        layoutManager.images[currentImagesIndex] = imageChoose
+        makeGridLayout()
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -71,11 +70,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let firstLine = layoutManager.imagesGrid[0]
         let secondLine = layoutManager.imagesGrid[1]
         
-        for images in firstLine {
-            topStackView.addArrangedSubview(makeButton(images: images))
+        for images in firstLine.enumerated() {
+            topStackView.addArrangedSubview(makeButton(images: images.element, index: images.offset))
         }
-        for images in secondLine {
-            bottomStackView.addArrangedSubview(makeButton(images: images))
+        for images in secondLine.enumerated() {
+            bottomStackView.addArrangedSubview(makeButton(images: images.element, index: images.offset + firstLine.count))
         }
     }
     @objc func resetLayout() {
