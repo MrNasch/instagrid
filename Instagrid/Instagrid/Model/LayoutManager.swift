@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+// class LayoutManager
 class LayoutManager {
     var type = Grid.layout2x1
     var images = [UIImage]()
@@ -21,6 +21,7 @@ class LayoutManager {
         
         
     }
+    // 2D array of images
     var imagesGrid : [[UIImage]] {
         switch type {
             case .layout1x2, .layoutLeft1x2:
@@ -41,7 +42,7 @@ class LayoutManager {
         }
     }
 }
-
+// extension of LayoutManager
 extension LayoutManager {
     enum Grid {
         case layout1x2

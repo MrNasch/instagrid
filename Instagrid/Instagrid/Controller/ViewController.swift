@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
+// main class of the view
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // Making generic button for the grid layout
     func makeButton(images: UIImage, index: Int) -> UIButton {
         let button = UIButton()
         button.backgroundColor = UIColor.white
@@ -18,7 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         button.tag = index
         return button
     }
-    
+    // Outlet of the view
     @IBOutlet weak var swipeTextLabel: UILabel!
     @IBOutlet weak var squareStackView: UIStackView!
     @IBOutlet weak var topStackView: UIStackView!
@@ -29,6 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         layout2x1(self)
     }
+    // choosing image using actionsheet (camera or library)
     @objc func chooseImage(_ sender: UIButton) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -52,6 +54,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(actionSheet, animated: true, completion: nil)
         
     }
+    // Remplace generic button image by one selected in the library or taken by the camera
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let imageChoose = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
@@ -60,11 +63,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         makeGridLayout()
         picker.dismiss(animated: true, completion: nil)
     }
-    
+    // End of imagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+    // making layout into the view
     func makeGridLayout() {
         resetLayout()
         let firstLine = layoutManager.imagesGrid[0]
@@ -77,6 +80,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             bottomStackView.addArrangedSubview(makeButton(images: images.element, index: images.offset + firstLine.count))
         }
     }
+    // reseting the layout
     @objc func resetLayout() {
         if layoutManager.type == .layoutLeft1x2 {
             squareStackView.axis = .horizontal
@@ -95,19 +99,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             view.removeFromSuperview()
         }
     }
+    // Layout choose by the button
     @IBAction func layout1x2(_ sender: Any) {
         
         layoutManager.type = .layout1x2
         makeGridLayout()
     }
+    // Layout choose by the button
     @IBAction func layout2x1(_ sender: Any) {
         layoutManager.type = .layout2x1
         makeGridLayout()
     }
+    // Layout choose by the button
     @IBAction func layoutLeft1x2(_ sender: Any) {
         layoutManager.type = .layoutLeft1x2
         makeGridLayout()
     }
+    // Layout choose by the button
     @IBAction func layout2x2(_ sender: Any) {
         layoutManager.type = .layout2x2
         makeGridLayout()
