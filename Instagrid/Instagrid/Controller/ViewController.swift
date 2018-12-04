@@ -26,14 +26,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bottomStackView: UIStackView!
     let layoutManager = LayoutManager()
+    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToShare(_:)))
     var currentImagesIndex = -1
     override func viewDidLoad() {
         super.viewDidLoad()
         layout2x1(self)
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToShare(_:)))
-        mainView.addGestureRecognizer(swipeGestureRecognizer)
+        view.addGestureRecognizer(swipeGestureRecognizer)
         
-        
+    }
+    override func willTransition(to: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            self.swipeGestureRecognizer.direction = .left
+        } else {
+            self.swipeGestureRecognizer.direction = .up
+        }
+        coordinator.animate(alongsideTransition: { context in
+            if UIDevice.current.orientation.isLandscape {
+                self.swipeTextLabel.text = "Swipe left to share"
+            } else {
+                self.swipeTextLabel.text = "Swipe up to share"
+            }
+        })
     }
     @objc func swipeToShare(_ sender: UISwipeGestureRecognizer) {
         let swipeActivityController = UIActivityViewController(activityItems: [squareStackView], applicationActivities: nil)
