@@ -232,7 +232,10 @@
                                     <constraint firstAttribute="bottom" secondItem="F2P-cx-fnd" secondAttribute="bottom" id="Bgc-Y8-zrH"/>
                                     <constraint firstAttribute="bottom" secondItem="d9r-lo-f7k" secondAttribute="bottom" id="CK6-Ro-pSq"/>
                                     <constraint firstItem="F2P-cx-fnd" firstAttribute="top" secondItem="d9r-lo-f7k" secondAttribute="bottom" id="FrU-te-Sy7"/>
-                                    <constraint firstAttribute="trailing" secondItem="ngT-AE-ucr" secondAttribute="trailing" constant="37" id="INs-bC-Ld9"/>
+                                    <constraint firstAttribute="trailing" secondItem="ngT-AE-ucr" secondAttribute="trailing" constant="37" id="INs-bC-Ld9">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="ngT-AE-ucr" firstAttribute="leading" secondItem="OUc-eh-O7x" secondAttribute="leading" constant="37" id="NBI-EX-zhm"/>
                                     <constraint firstAttribute="bottom" secondItem="ngT-AE-ucr" secondAttribute="bottom" id="Qgb-Jo-RJQ"/>
                                     <constraint firstItem="ngT-AE-ucr" firstAttribute="top" secondItem="OUc-eh-O7x" secondAttribute="top" id="cec-0B-FU2"/>
