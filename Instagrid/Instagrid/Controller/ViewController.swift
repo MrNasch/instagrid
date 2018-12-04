@@ -20,6 +20,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return button
     }
     // Outlet of the view
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var swipeTextLabel: UILabel!
     @IBOutlet weak var squareStackView: UIStackView!
     @IBOutlet weak var topStackView: UIStackView!
@@ -29,6 +30,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         layout2x1(self)
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToShare(_:)))
+        mainView.addGestureRecognizer(swipeGestureRecognizer)
+        
+        
+    }
+    @objc func swipeToShare(_ sender: UISwipeGestureRecognizer) {
+        let swipeActivityController = UIActivityViewController(activityItems: [squareStackView], applicationActivities: nil)
+        present(swipeActivityController, animated: true, completion: nil)
     }
     // choosing image using actionsheet (camera or library)
     @objc func chooseImage(_ sender: UIButton) {
