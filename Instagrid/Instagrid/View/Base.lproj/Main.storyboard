@@ -186,6 +186,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZT-S4-RyW">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="93.5"/>
                                                         <state key="normal" image="Layout 2"/>
+                                                        <state key="selected" image="Layout2x1"/>
                                                         <connections>
                                                             <action selector="layout2x1:" destination="3dP-UA-xOu" eventType="touchUpInside" id="kWE-GQ-LXo"/>
                                                         </connections>
@@ -193,6 +194,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nN-qc-nkJ">
                                                         <rect key="frame" x="76" y="0.0" width="73.5" height="93.5"/>
                                                         <state key="normal" image="Layout 3"/>
+                                                        <state key="selected" image="LayoutLeft1x2"/>
                                                         <connections>
                                                             <action selector="layoutLeft1x2:" destination="3dP-UA-xOu" eventType="touchUpInside" id="uRc-j5-cSp"/>
                                                         </connections>
@@ -200,6 +202,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGw-Yj-QxI">
                                                         <rect key="frame" x="151.5" y="0.0" width="74" height="93.5"/>
                                                         <state key="normal" image="Layout 4"/>
+                                                        <state key="selected" image="Layout2x2"/>
                                                         <connections>
                                                             <action selector="layout2x2:" destination="3dP-UA-xOu" eventType="touchUpInside" id="Myv-re-v9t"/>
                                                         </connections>
@@ -207,6 +210,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3n-1X-dLt">
                                                         <rect key="frame" x="227.5" y="0.0" width="73.5" height="93.5"/>
                                                         <state key="normal" image="Layout 1"/>
+                                                        <state key="selected" image="Layout1x2"/>
                                                         <connections>
                                                             <action selector="layout1x2:" destination="3dP-UA-xOu" eventType="touchUpInside" id="OgL-n2-yCc"/>
                                                         </connections>
@@ -309,10 +313,13 @@
                         <viewLayoutGuide key="safeArea" id="oOT-ZR-9J8"/>
                     </view>
                     <connections>
+                        <outlet property="arrowImage" destination="nwb-WS-Zwd" id="EDE-ss-BFB"/>
                         <outlet property="bottomStackView" destination="0ex-GW-60K" id="kPp-zl-PhF"/>
+                        <outlet property="mainView" destination="OUc-eh-O7x" id="cq3-W2-C5w"/>
                         <outlet property="squareStackView" destination="toa-2A-xLy" id="eDz-Un-qgK"/>
                         <outlet property="swipeTextLabel" destination="pZZ-xC-sJT" id="rnh-eC-Jbb"/>
                         <outlet property="topStackView" destination="1e2-3f-JaY" id="UW0-pH-NR3"/>
+                        <outletCollection property="layoutButtons" destination="M3n-1X-dLt" collectionClass="NSMutableArray" id="n19-Yk-WGA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta9-dA-3mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -325,6 +332,10 @@
         <image name="Layout 2" width="65" height="65"/>
         <image name="Layout 3" width="65" height="65"/>
         <image name="Layout 4" width="65" height="65"/>
+        <image name="Layout1x2" width="65" height="65"/>
+        <image name="Layout2x1" width="65" height="65"/>
+        <image name="Layout2x2" width="65" height="65"/>
+        <image name="LayoutLeft1x2" width="66" height="65"/>
         <image name="arrow" width="15" height="10"/>
         <image name="blue cross" width="48" height="49"/>
     </resources>

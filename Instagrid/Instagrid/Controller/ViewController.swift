@@ -7,6 +7,25 @@
 //
 
 import UIKit
+extension UIView {
+    
+    // Using a function since `var image` might conflict with an existing variable
+    // (like on `UIImageView`)
+    func asImage() -> UIImage {
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(bounds: bounds)
+            return renderer.image { rendererContext in
+                layer.render(in: rendererContext.cgContext)
+            }
+        } else {
+            UIGraphicsBeginImageContext(self.frame.size)
+            self.layer.render(in:UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return UIImage(cgImage: image!.cgImage!)
+        }
+    }
+}
 // main class of the view
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // Making generic button for the grid layout
@@ -25,12 +44,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var squareStackView: UIStackView!
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bottomStackView: UIStackView!
+    @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet var layoutButtons: [UIButton]!
     let layoutManager = LayoutManager()
-    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToShare(_:)))
     var currentImagesIndex = -1
+    var swipeGestureRecognizer: UISwipeGestureRecognizer!
     override func viewDidLoad() {
         super.viewDidLoad()
         layout2x1(self)
+        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToShare(_:)))
+        swipeGestureRecognizer.direction = .up
+        swipeGestureRecognizer.numberOfTouchesRequired = 1
         view.addGestureRecognizer(swipeGestureRecognizer)
         
     }
@@ -49,7 +73,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         })
     }
     @objc func swipeToShare(_ sender: UISwipeGestureRecognizer) {
-        let swipeActivityController = UIActivityViewController(activityItems: [squareStackView], applicationActivities: nil)
+        let shareImage = squareStackView.asImage()
+        let swipeActivityController = UIActivityViewController(activityItems: [shareImage], applicationActivities: nil)
         present(swipeActivityController, animated: true, completion: nil)
     }
     // choosing image using actionsheet (camera or library)
