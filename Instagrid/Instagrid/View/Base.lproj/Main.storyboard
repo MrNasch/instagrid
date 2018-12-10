@@ -313,6 +313,7 @@
                         <viewLayoutGuide key="safeArea" id="oOT-ZR-9J8"/>
                     </view>
                     <connections>
+                        <outlet property="SquareView" destination="F2P-cx-fnd" id="fQh-LX-xzB"/>
                         <outlet property="arrowImage" destination="nwb-WS-Zwd" id="EDE-ss-BFB"/>
                         <outlet property="bottomStackView" destination="0ex-GW-60K" id="kPp-zl-PhF"/>
                         <outlet property="mainView" destination="OUc-eh-O7x" id="cq3-W2-C5w"/>

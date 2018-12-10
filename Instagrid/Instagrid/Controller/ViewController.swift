@@ -36,11 +36,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         button.imageView?.contentMode = .scaleAspectFill
         button.addTarget(self, action: #selector(self.chooseImage(_:)), for: .touchUpInside)
         button.tag = index
+        button.isSelected = true
         return button
     }
     // Outlet of the view
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var swipeTextLabel: UILabel!
+    @IBOutlet weak var squareView: UIView!
     @IBOutlet weak var squareStackView: UIStackView!
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bottomStackView: UIStackView!
@@ -51,7 +53,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var swipeGestureRecognizer: UISwipeGestureRecognizer!
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout2x1(self)
         swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToShare(_:)))
         swipeGestureRecognizer.direction = .up
         swipeGestureRecognizer.numberOfTouchesRequired = 1
@@ -67,13 +68,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         coordinator.animate(alongsideTransition: { context in
             if UIDevice.current.orientation.isLandscape {
                 self.swipeTextLabel.text = "Swipe left to share"
+                self.arrowImage.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/2.00)
             } else {
                 self.swipeTextLabel.text = "Swipe up to share"
-            }
+                self.arrowImage.transform = .identity            }
         })
     }
     @objc func swipeToShare(_ sender: UISwipeGestureRecognizer) {
-        let shareImage = squareStackView.asImage()
+        let shareImage = squareView.asImage()
         let swipeActivityController = UIActivityViewController(activityItems: [shareImage], applicationActivities: nil)
         present(swipeActivityController, animated: true, completion: nil)
     }
@@ -147,25 +149,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     // Layout choose by the button
-    @IBAction func layout1x2(_ sender: Any) {
-        
+    @IBAction func layout1x2(_ sender: UIButton) {
         layoutManager.type = .layout1x2
         makeGridLayout()
+        sender.isSelected = !sender.isSelected
     }
     // Layout choose by the button
-    @IBAction func layout2x1(_ sender: Any) {
+    @IBAction func layout2x1(_ sender: UIButton) {
         layoutManager.type = .layout2x1
         makeGridLayout()
+        sender.isSelected = !sender.isSelected
     }
     // Layout choose by the button
-    @IBAction func layoutLeft1x2(_ sender: Any) {
+    @IBAction func layoutLeft1x2(_ sender: UIButton) {
         layoutManager.type = .layoutLeft1x2
         makeGridLayout()
+        sender.isSelected = !sender.isSelected
     }
     // Layout choose by the button
-    @IBAction func layout2x2(_ sender: Any) {
+    @IBAction func layout2x2(_ sender: UIButton) {
         layoutManager.type = .layout2x2
         makeGridLayout()
+        sender.isSelected = !sender.isSelected
     }
 }
 
