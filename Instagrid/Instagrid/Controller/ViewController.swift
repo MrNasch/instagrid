@@ -51,14 +51,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let layoutManager = LayoutManager()
     var currentImagesIndex = -1
     var swipeGestureRecognizer: UISwipeGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutButtons.first?.sendActions(for: .touchUpInside)
         swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToShare(_:)))
         swipeGestureRecognizer.direction = .up
         swipeGestureRecognizer.numberOfTouchesRequired = 1
         view.addGestureRecognizer(swipeGestureRecognizer)
         
     }
+    // changed state of orientation
     override func willTransition(to: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
             self.swipeGestureRecognizer.direction = .left
@@ -74,11 +77,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.arrowImage.transform = .identity            }
         })
     }
+    // sharing the image
     @objc func swipeToShare(_ sender: UISwipeGestureRecognizer) {
         let shareImage = squareView.asImage()
         let swipeActivityController = UIActivityViewController(activityItems: [shareImage], applicationActivities: nil)
         present(swipeActivityController, animated: true, completion: nil)
     }
+    
     // choosing image using actionsheet (camera or library)
     @objc func chooseImage(_ sender: UIButton) {
         let imagePickerController = UIImagePickerController()
@@ -103,6 +108,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(actionSheet, animated: true, completion: nil)
         
     }
+    
     // Remplace generic button image by one selected in the library or taken by the camera
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -112,10 +118,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         makeGridLayout()
         picker.dismiss(animated: true, completion: nil)
     }
+    
     // End of imagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
     // making layout into the view
     func makeGridLayout() {
         resetLayout()
@@ -129,6 +137,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             bottomStackView.addArrangedSubview(makeButton(images: images.element, index: images.offset + firstLine.count))
         }
     }
+    
     // reseting the layout
     @objc func resetLayout() {
         if layoutManager.type == .layoutLeft1x2 {
@@ -147,25 +156,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         for view in bottomStackView.subviews {
             view.removeFromSuperview()
         }
+        // simple closure = $0 first param
+        layoutButtons.forEach { $0.isSelected = false }
     }
+    
     // Layout choose by the button
     @IBAction func layout1x2(_ sender: UIButton) {
         layoutManager.type = .layout1x2
         makeGridLayout()
         sender.isSelected = !sender.isSelected
     }
+    
     // Layout choose by the button
     @IBAction func layout2x1(_ sender: UIButton) {
         layoutManager.type = .layout2x1
         makeGridLayout()
         sender.isSelected = !sender.isSelected
     }
+    
     // Layout choose by the button
     @IBAction func layoutLeft1x2(_ sender: UIButton) {
         layoutManager.type = .layoutLeft1x2
         makeGridLayout()
         sender.isSelected = !sender.isSelected
     }
+    
     // Layout choose by the button
     @IBAction func layout2x2(_ sender: UIButton) {
         layoutManager.type = .layout2x2

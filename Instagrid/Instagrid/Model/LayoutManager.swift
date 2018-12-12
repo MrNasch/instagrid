@@ -21,6 +21,7 @@ class LayoutManager {
         
         
     }
+    
     // 2D array of images
     var imagesGrid : [[UIImage]] {
         switch type {
@@ -42,6 +43,7 @@ class LayoutManager {
         }
     }
 }
+
 // extension of LayoutManager
 extension LayoutManager {
     enum Grid {

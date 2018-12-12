@@ -45,7 +45,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7ca-Tw-lls" userLabel="swipe">
                                                 <rect key="frame" x="0.0" y="35.5" width="301" height="58"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="nwb-WS-Zwd">
+                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="nwb-WS-Zwd">
                                                         <rect key="frame" x="143" y="0.0" width="15" height="29"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZZ-xC-sJT">
@@ -313,14 +313,17 @@
                         <viewLayoutGuide key="safeArea" id="oOT-ZR-9J8"/>
                     </view>
                     <connections>
-                        <outlet property="SquareView" destination="F2P-cx-fnd" id="fQh-LX-xzB"/>
                         <outlet property="arrowImage" destination="nwb-WS-Zwd" id="EDE-ss-BFB"/>
                         <outlet property="bottomStackView" destination="0ex-GW-60K" id="kPp-zl-PhF"/>
                         <outlet property="mainView" destination="OUc-eh-O7x" id="cq3-W2-C5w"/>
                         <outlet property="squareStackView" destination="toa-2A-xLy" id="eDz-Un-qgK"/>
+                        <outlet property="squareView" destination="vEK-tU-d2d" id="SJc-Ci-5RP"/>
                         <outlet property="swipeTextLabel" destination="pZZ-xC-sJT" id="rnh-eC-Jbb"/>
                         <outlet property="topStackView" destination="1e2-3f-JaY" id="UW0-pH-NR3"/>
                         <outletCollection property="layoutButtons" destination="M3n-1X-dLt" collectionClass="NSMutableArray" id="n19-Yk-WGA"/>
+                        <outletCollection property="layoutButtons" destination="jGw-Yj-QxI" collectionClass="NSMutableArray" id="1Y5-w7-LNg"/>
+                        <outletCollection property="layoutButtons" destination="2nN-qc-nkJ" collectionClass="NSMutableArray" id="CGo-rJ-bnB"/>
+                        <outletCollection property="layoutButtons" destination="EZT-S4-RyW" collectionClass="NSMutableArray" id="FY9-dF-VmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta9-dA-3mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
