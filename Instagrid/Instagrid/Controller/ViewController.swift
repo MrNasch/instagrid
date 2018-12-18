@@ -65,14 +65,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     // changed state of orientation
     override func willTransition(to: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        var translationTransform : CGAffineTransform
-        
         if UIDevice.current.orientation.isLandscape {
             self.swipeGestureRecognizer.direction = .left
-            translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
         } else {
             self.swipeGestureRecognizer.direction = .up
-            translationTransform = CGAffineTransform(translationX: -screenHeight, y: 0)
         }
         coordinator.animate(alongsideTransition: { context in
             if UIDevice.current.orientation.isLandscape {
@@ -87,6 +83,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func swipeToShare(_ sender: UISwipeGestureRecognizer) {
         let shareImage = squareView.asImage()
         let swipeActivityController = UIActivityViewController(activityItems: [shareImage], applicationActivities: nil)
+        var translationTransform : CGAffineTransform
+        if UIDevice.current.orientation.isLandscape {
+            translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
+        } else {
+            translationTransform = CGAffineTransform(translationX: 0, y: -screenHeight)
+        }
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.squareView.transform = translationTransform
+        }, completion: { finished in })
+        swipeActivityController.completionWithItemsHandler = {_, _, _, _ in
+            UIView.animate(withDuration: 1, animations: {
+                self.squareView.transform = .identity
+            }, completion: { finished in })
+        }
         present(swipeActivityController, animated: true, completion: nil)
     }
     
@@ -159,7 +170,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             bottomStackView.axis = .horizontal
         }
         for view in topStackView.subviews {
-            view.removeFromSuperview() 
+            view.removeFromSuperview()
         }
         
         for view in bottomStackView.subviews {
