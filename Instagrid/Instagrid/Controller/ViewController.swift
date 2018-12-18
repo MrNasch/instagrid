@@ -7,11 +7,6 @@
 //
 
 import UIKit
-// allowing rotation of pickerController
-extension UIImagePickerController {
-    //override open var shouldAutorotate: Bool
-    //override open var supportedInterfaceOrientations: UIInterfaceOrientationMask
-}
 extension UIView {
     
     // Using a function since `var image` might conflict with an existing variable
@@ -203,3 +198,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 }
 
+// allowing rotation of pickerController
+extension UIImagePickerController {
+    override open var shouldAutorotate: Bool {
+        return true
+    }
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+}
