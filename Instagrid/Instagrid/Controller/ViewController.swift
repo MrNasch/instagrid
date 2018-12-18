@@ -107,7 +107,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
-                print("Camera not available")
+                let alert = UIAlertController(title: "Missing camera", message: "There is no camera available!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
             }
         }))
         actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { (action:UIAlertAction) in
